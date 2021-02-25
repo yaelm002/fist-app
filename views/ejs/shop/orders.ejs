@@ -1,0 +1,30 @@
+<%- include ('../../layouts/ejs/head.ejs') %>
+  <link rel="stylesheet" href="/css/add-product.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <%- include('../../layouts/ejs/header.ejs') %>
+  <main>
+
+    <% if(orders.length === 0) {%>
+      <h2>Hallo</h2>
+   <% }%>
+
+   <% orders.forEach(order=> {%>
+   <ul>
+     <li>
+        <h1> # <%= order.id%></h1>
+        <ul>
+          <% order.products.forEach(product=> {%>
+            <li>
+              <h4> <%= product.title %>  ( <%= product.orderItem.quantity%> )</h4>
+            </li>
+              <% })%>
+         
+        </ul>
+      </li>
+    </ul>
+    <% })%>
+      
+
+  </main>
+</body>
+</html>

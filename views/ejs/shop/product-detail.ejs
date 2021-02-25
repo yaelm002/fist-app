@@ -1,0 +1,26 @@
+<%- include ('../../layouts/ejs/head.ejs') %>
+  <link rel="stylesheet" href="/css/add-product.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <%- include('../../layouts/ejs/header.ejs') %>
+    <main>
+      <div class="centered">
+        <h1>
+          <%=productElem.title%>
+        </h1>
+        <br>
+        <div>
+        <img src="<%=productElem.imageUrl%>" alt="<%=productElem.title%>" width="100px" height="100px">
+      </div>
+        <h1>
+          $<%=productElem.price%>
+        </h1>
+          <p>
+            <%=productElem.description%>
+          </p>
+        </div>  
+        <div class="card__actions">
+          <%- include('../../layouts/ejs/add-to-cart.ejs', {post : productElem}) %>
+        </div>
+    </main>
+  </body>
+  </html>

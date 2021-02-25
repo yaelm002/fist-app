@@ -1,0 +1,35 @@
+<%- include ('../../layouts/ejs/head.ejs') %>
+  <link rel="stylesheet" href="/css/add-product.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <%- include('../../layouts/ejs/header.ejs') %>
+    <main>
+      <%if (hasProduct) { %>
+      <div class="grid">
+        <% prods.forEach(post =>{ %>
+        <article>
+          <header class="card__header">
+            <header class="card__header">
+              <h1 class="product__title"> <%=post.title%>
+              </h1>
+              <div class="card__image"><img src="<%=post.imageUrl%>"
+                  width="50px" height="50px" alt=""></div>
+              <div class="card__content">
+                <h2 class="product__price" >$<%=post.price%></h2>
+                <p class="product__description"><%=post.description%></p>
+              </div>
+              <div class="card__actions">
+                <a href="/products/<%= post._id%>" class="btn" > Details</a>
+                  <%- include('../../layouts/ejs/add-to-cart.ejs' , {post}) %>
+              </div>
+            </header>
+          </header>
+        </article>
+        <%})%>
+      </div>
+      <% } else {%>
+      <h2>No Product</h2>
+        <% } %>
+  </main>
+</body>
+</html>
+
